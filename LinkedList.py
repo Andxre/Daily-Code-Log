@@ -1,6 +1,6 @@
 '''
 1/17/2020
-Simple Linked List implementation in python
+Simple Linked List implementation in python~
 '''
 
 class Node():
@@ -22,7 +22,19 @@ class LinkedList:
               tmp = tmp.next
           tmp.next = node
 
+    def remove(self, data):
+        if (self.head == None):
+            return
+        temp = self.head
+        prev = None
 
+        while (temp.val != data):
+            prev = temp
+            temp = temp.next
+        if (temp.val == None):
+            return
+        else:
+            prev.next = temp.next
 
     def print(self):
         if (self.head == None):
@@ -30,14 +42,18 @@ class LinkedList:
             return
         tmp = self.head
         while (tmp != None):
-            print(tmp.val, end="->")
+            print(tmp.val, end=" ")
             tmp = tmp.next
+        print("\n")
 
 
 def main():
   ll = LinkedList()
-  for i in range(1, 100):
+  for i in range(1, 10):
     ll.add(i)
+  ll.print()
+  ll.remove(2)
+  ll.remove(3)
   ll.print()
 
 
